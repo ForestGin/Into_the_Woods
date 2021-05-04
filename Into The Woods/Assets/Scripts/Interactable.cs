@@ -7,15 +7,19 @@ public class Interactable : MonoBehaviour
     bool isFocus = false;
     Transform player;
     bool hasInteracted = false;
-    
-    public virtual void Interact()
+
+    public GameObject Text;
+
+
+    void Start()
     {
-        //meant to be overwritten 
-        Debug.Log("Interacting with " + transform.name);
+        Text = GameObject.Find("Text");
+        
     }
 
-     void Update()
+    void Update()
     {
+        
         
 
         if (isFocus && !hasInteracted)
@@ -49,5 +53,16 @@ public class Interactable : MonoBehaviour
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, radius); 
+    }
+
+    public void Interact()
+    {
+        
+        Debug.Log("Interacting with " + transform.name);
+
+        Debug.Log("Picking up item");
+
+        if(gameObject.name == "Rock")
+            Destroy(gameObject);
     }
 }
