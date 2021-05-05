@@ -1,5 +1,6 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 
 public class Interactable : MonoBehaviour
 {
@@ -8,12 +9,19 @@ public class Interactable : MonoBehaviour
     Transform player;
     bool hasInteracted = false;
 
-    public GameObject Text;
+    GameObject canvas;
+    Transform trans;
+    Text text;
 
+    private Coroutine TextRoutine = null;
 
     void Start()
     {
-        Text = GameObject.Find("Text");
+        canvas = GameObject.Find("Canvas");
+        trans = canvas.transform.Find("Text");
+        text = trans.GetComponent<Text>();
+
+        text.enabled = false;
         
     }
 
@@ -62,7 +70,41 @@ public class Interactable : MonoBehaviour
 
         Debug.Log("Picking up item");
 
-        if(gameObject.name == "Rock")
-            Destroy(gameObject);
+        this.TextRoutine = StartCoroutine(ShowText());
+
+       
+    }
+
+    IEnumerator ShowText()//we wait x seconds until text dissapears
+    {
+        float time = 3;
+        this.text.enabled = true;
+
+
+        
+
+        if (gameObject.name == "Apple")
+        {
+
+            text.text = "This is a Sphere";
+            yield return new WaitForSeconds(time);
+
+
+        }
+        if (gameObject.name == "Rock")
+        {
+
+            text.text = "This is a Cube";
+            yield return new WaitForSeconds(time);
+
+
+        }
+            
+      
+
+        this.text.enabled = false;
+        //yield return new WaitForSeconds(3);
+        //text.enabled = false;
+       
     }
 }
