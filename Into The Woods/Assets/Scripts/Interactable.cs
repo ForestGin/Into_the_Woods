@@ -89,18 +89,18 @@ public class Interactable : MonoBehaviour
 
         
 
-        if (gameObject.name == "Apple")
+        if (gameObject.name == "Pig")
         {
 
-            text.text = "This is a Sphere";
+            text.text = "What a cute little piggie";
             yield return new WaitForSeconds(time);
 
 
         }
-        if (gameObject.name == "Rock")
+        if (gameObject.name == "Mushroom")
         {
 
-            text.text = "This is a Cube";
+            text.text = "I probably shouldn't eat this...";
             yield return new WaitForSeconds(time);
 
 

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
-    public Interactable focus;
+    Interactable focus;
     Camera cam;
 
-    public string[] keys = new string[] { "w", "a", "s", "d" };
+    string[] keys = new string[] { "w", "a", "s", "d" };
 
     // Start is called before the first frame update
     void Start()
