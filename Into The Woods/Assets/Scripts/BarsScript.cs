@@ -7,14 +7,14 @@ public class BarsScript : MonoBehaviour
     public Slider braverySlider;
     void Start()
     {
-        Set(0);
+        SetBar(0);
     }
     public void SetMaxBar(int max)
     {
         braverySlider.maxValue = max;
     }
 
-    public void Set(int num)
+    public void SetBar(int num)
     {
         braverySlider.value = num;
     }
