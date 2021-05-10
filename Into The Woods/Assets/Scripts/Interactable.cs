@@ -14,14 +14,19 @@ public class Interactable : MonoBehaviour
     Transform trans2;
     Text text;
     RawImage image;
-
+    
     private Coroutine TextRoutine = null;
+
+    BarsScript bravery;
+
+    
 
     void Start()
     {
         canvas = GameObject.Find("Canvas");
         trans = canvas.transform.Find("Text");
         trans2 = canvas.transform.Find("Image");
+        bravery = GameObject.FindGameObjectWithTag("Bravery").GetComponent<BarsScript>();
 
         text = trans.GetComponent<Text>();
         image = trans2.GetComponent<RawImage>();
@@ -91,16 +96,21 @@ public class Interactable : MonoBehaviour
 
         if (gameObject.name == "Pig")
         {
-
-            text.text = "What a cute little piggie";
+            
+            bravery.SetBar(1);
+            text.text = "This Pig seems hungry";
             yield return new WaitForSeconds(time);
-
+            
 
         }
+
         if (gameObject.name == "Mushroom")
         {
+            if(bravery.braverySlider.value < 1)
+                text.text = "I probably shouldn't eat this...";
+            else if (bravery.braverySlider.value >= 1)
+                text.text = "For the Piggie!";
 
-            text.text = "I probably shouldn't eat this...";
             yield return new WaitForSeconds(time);
 
 
