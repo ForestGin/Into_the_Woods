@@ -11,7 +11,9 @@ public class Interactable : MonoBehaviour
 
     GameObject canvas;
     Transform trans;
+    Transform trans2;
     Text text;
+    RawImage image;
 
     private Coroutine TextRoutine = null;
 
@@ -19,10 +21,14 @@ public class Interactable : MonoBehaviour
     {
         canvas = GameObject.Find("Canvas");
         trans = canvas.transform.Find("Text");
+        trans2 = canvas.transform.Find("Image");
+
         text = trans.GetComponent<Text>();
+        image = trans2.GetComponent<RawImage>();
 
         text.enabled = false;
-        
+        image.enabled = false;
+
     }
 
     void Update()
@@ -79,7 +85,7 @@ public class Interactable : MonoBehaviour
     {
         float time = 3;
         this.text.enabled = true;
-
+        this.image.enabled = true;
 
         
 
@@ -103,8 +109,9 @@ public class Interactable : MonoBehaviour
       
 
         this.text.enabled = false;
+        this.image.enabled = false;
         //yield return new WaitForSeconds(3);
         //text.enabled = false;
-       
+
     }
 }
