@@ -9,6 +9,7 @@ public class Interaction : MonoBehaviour
 
     string[] keys = new string[] { "w", "a", "s", "d" };
 
+
     // Start is called before the first frame update
     void Start()
     {
