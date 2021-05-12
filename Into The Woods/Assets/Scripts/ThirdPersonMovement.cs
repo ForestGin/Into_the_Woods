@@ -6,22 +6,18 @@ public class ThirdPersonMovement : MonoBehaviour
 {
     public CharacterController controller;
     public Transform cam;
-
+    public Animator animator;
     public float speed = 6f;
-
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
-
     public float gravity = -9.81f;
     Vector3 velocity;
-
     public float jumpHeight = 1.5f;
-
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     bool isGrounded;
-
+    
     // Start is called before the first frame update
     void Start()
     {
