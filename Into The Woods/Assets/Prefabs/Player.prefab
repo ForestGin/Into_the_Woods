@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4009723848541514516}
+  - component: {fileID: 4996566781416602009}
   - component: {fileID: 4009723848541514518}
   - component: {fileID: 4009723848541514517}
   - component: {fileID: 4009723848541514519}
@@ -35,6 +36,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &4996566781416602009
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4009723848541514539}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 133f7f85c8d57a04eb4e7350eefe2088, type: 3}
+  m_Controller: {fileID: 9100000, guid: 0cecccc88f1e8a446a9a76c2638da052, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!143 &4009723848541514518
 CharacterController:
   m_ObjectHideFlags: 0
@@ -67,6 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 4009723848541514518}
   cam: {fileID: 0}
+  animator: {fileID: 4996566781416602009}
   speed: 6
   turnSmoothTime: 0.1
   gravity: -9.81
@@ -118,25 +139,6 @@ Transform:
   m_Father: {fileID: 4009723848541514516}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &5110045431074694841
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7585589148500677437}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0cecccc88f1e8a446a9a76c2638da052, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &5110045431074694846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -236,12 +238,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d1458b5d18e7cd448ac8e5dce023ebe, type: 3}
---- !u!1 &7585589148500677437 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3436222451537704323, guid: 3d1458b5d18e7cd448ac8e5dce023ebe,
-    type: 3}
-  m_PrefabInstance: {fileID: 5110045431074694846}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7065793289059862919 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2658314215085846329, guid: 3d1458b5d18e7cd448ac8e5dce023ebe,
