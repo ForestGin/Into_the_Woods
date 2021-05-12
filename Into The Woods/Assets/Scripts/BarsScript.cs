@@ -4,18 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BarsScript : MonoBehaviour
 {
-    public Slider braverySlider;
+    public Slider slider;
+   
     void Start()
     {
         SetBar(0);
     }
     public void SetMaxBar(int max)
     {
-        braverySlider.maxValue = max;
+        slider.maxValue = max;
     }
 
     public void SetBar(int num)
     {
-        braverySlider.value = num;
+        
+        slider.value = num;
+      
     }
 }

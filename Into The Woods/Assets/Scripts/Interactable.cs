@@ -18,8 +18,10 @@ public class Interactable : MonoBehaviour
     private Coroutine TextRoutine = null;
 
     BarsScript bravery;
+    BarsScript curiosity;
+    BarsScript happiness;
 
-    
+
 
     void Start()
     {
@@ -27,6 +29,8 @@ public class Interactable : MonoBehaviour
         trans = canvas.transform.Find("Text");
         trans2 = canvas.transform.Find("Image");
         bravery = GameObject.FindGameObjectWithTag("Bravery").GetComponent<BarsScript>();
+        curiosity = GameObject.FindGameObjectWithTag("Curiosity").GetComponent<BarsScript>();
+        happiness = GameObject.FindGameObjectWithTag("Happiness").GetComponent<BarsScript>();
 
         text = trans.GetComponent<Text>();
         image = trans2.GetComponent<RawImage>();
@@ -98,7 +102,19 @@ public class Interactable : MonoBehaviour
         {
             
             bravery.SetBar(1);
-            text.text = "This Pig seems hungry";
+
+            if (happiness.slider.value < 1 && bravery.slider.value >= 1)
+            {
+                text.text = "This Pig seems hurt...";
+            }
+
+            if (happiness.slider.value >= 1)
+            {
+                text.text = "Have this plant piggie";
+                Destroy(gameObject);
+                
+            }
+
             yield return new WaitForSeconds(time);
             
 
@@ -106,17 +122,40 @@ public class Interactable : MonoBehaviour
 
         if (gameObject.name == "Mushroom")
         {
-            if(bravery.braverySlider.value < 1)
-                text.text = "I probably shouldn't eat this...";
-            else if (bravery.braverySlider.value >= 1)
-                text.text = "For the Piggie!";
+            curiosity.SetBar(1);
+
+
+            if (bravery.slider.value < 1)
+                text.text = "This seems bad news";
+
+            if (bravery.slider.value >= 1)
+                text.text = "This must be the cause";
+                    
+
+           
 
             yield return new WaitForSeconds(time);
 
 
         }
-            
-      
+
+
+        if (gameObject.name == "Plant")
+        {
+            if (curiosity.slider.value < 1)
+                text.text = "What is this plant?";
+
+            if (curiosity.slider.value >= 1 && bravery.slider.value >= 1)
+            {
+                happiness.SetBar(1);
+                text.text = "This is the medicinal plant I need!";
+            }
+
+            yield return new WaitForSeconds(time);
+
+
+        }
+
 
         this.text.enabled = false;
         this.image.enabled = false;

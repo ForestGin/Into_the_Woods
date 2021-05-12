@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bravery
   - Interactable
+  - Curiosity
+  - Happiness
   layers:
   - Default
   - TransparentFX
