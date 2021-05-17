@@ -18,8 +18,16 @@ public class Interactable : MonoBehaviour
     private Coroutine TextRoutine = null;
 
     BarsScript bravery;
+    Text textbravery;
+    Image[] imagesbravery;
+
     BarsScript curiosity;
+    Text textcuriosity;
+    Image[] imagescuriosity;
+
     BarsScript happiness;
+    Text texthappiness;
+    Image[] imageshappiness;
 
 
 
@@ -37,6 +45,25 @@ public class Interactable : MonoBehaviour
 
         text.enabled = false;
         image.enabled = false;
+
+        //HIDE BARS AND TEXT
+        textbravery = bravery.GetComponentInChildren<Text>();
+        imagesbravery = bravery.GetComponentsInChildren<Image>();
+        textbravery.enabled = false;
+        imagesbravery[0].enabled = false;
+        imagesbravery[1].enabled = false;
+
+        textcuriosity = curiosity.GetComponentInChildren<Text>();
+        imagescuriosity = curiosity.GetComponentsInChildren<Image>();
+        textcuriosity.enabled = false;
+        imagescuriosity[0].enabled = false;
+        imagescuriosity[1].enabled = false;
+
+        texthappiness = happiness.GetComponentInChildren<Text>();
+        imageshappiness = happiness.GetComponentsInChildren<Image>();
+        texthappiness.enabled = false;
+        imageshappiness[0].enabled = false;
+        imageshappiness[1].enabled = false;
 
     }
 
@@ -56,6 +83,8 @@ public class Interactable : MonoBehaviour
             }
 
         }
+
+       
     }
     public void OnFocused (Transform playerTransform)
     {
