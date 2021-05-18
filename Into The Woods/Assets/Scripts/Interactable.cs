@@ -31,6 +31,7 @@ public class Interactable : MonoBehaviour
 
 
 
+
     void Start()
     {
         canvas = GameObject.Find("Canvas");
@@ -91,7 +92,7 @@ public class Interactable : MonoBehaviour
         
         isFocus = true;
         player = playerTransform;
-        hasInteracted = false;
+        //hasInteracted = false;
     }
 
     public void OnDefocused()
@@ -112,13 +113,15 @@ public class Interactable : MonoBehaviour
         
         Debug.Log("Interacting with " + transform.name);
 
-        Debug.Log("Picking up item");
-
         this.TextRoutine = StartCoroutine(ShowText());
 
        
     }
-
+    IEnumerator SelfDestruct()
+    {
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
+    }
     IEnumerator ShowText()//we wait x seconds until text dissapears
     {
         float time = 3;
@@ -127,69 +130,100 @@ public class Interactable : MonoBehaviour
 
         
 
-        if (gameObject.name == "Pig")
+        if (transform.name == "Pig")
         {
             
             bravery.SetBar(1);
 
-            if (happiness.slider.value < 1 && bravery.slider.value >= 1)
+            if (bravery.slider.value >= 1 && curiosity.slider.value < 1 && happiness.slider.value < 1)
             {
-                text.text = "This Pig seems hurt...";
+                text.fontSize = 18;
+                text.text = "This Pig is blocking the way. He seems hurt...";
             }
 
-            if (happiness.slider.value >= 1)
+            if (bravery.slider.value >= 1 && curiosity.slider.value >=1 && happiness.slider.value < 1)
             {
-                text.text = "Have this plant piggie";
-                Destroy(gameObject);
+                text.fontSize = 14;
+                text.text = "It seems you've eaten that mushroom. I'll help you";
+            }
+
+            if (bravery.slider.value >= 1 && curiosity.slider.value >= 1 && happiness.slider.value >= 1 ||
+                bravery.slider.value >= 1 && curiosity.slider.value < 1 && happiness.slider.value >= 1)
+            {
                 
+                text.fontSize = 20;
+                text.text = "Have this plant piggie, it will help";
+                StartCoroutine(SelfDestruct());
+
             }
 
-            yield return new WaitForSeconds(time);
+            //yield return new WaitForSeconds(time);
             
 
         }
-
-        if (gameObject.name == "Mushroom")
+        else if (transform.name == "Mushroom")
         {
             curiosity.SetBar(1);
 
 
-            if (bravery.slider.value < 1)
-                text.text = "This seems bad news";
-
-            if (bravery.slider.value >= 1)
-                text.text = "This must be the cause";
-                    
-
-           
-
-            yield return new WaitForSeconds(time);
-
-
-        }
-
-
-        if (gameObject.name == "Plant")
-        {
-            if (curiosity.slider.value < 1)
-                text.text = "What is this plant?";
-
-            if (curiosity.slider.value >= 1 && bravery.slider.value >= 1)
+            if (curiosity.slider.value >= 1 && bravery.slider.value < 1 && happiness.slider.value < 1)
             {
-                happiness.SetBar(1);
-                text.text = "This is the medicinal plant I need!";
+                text.fontSize = 20;
+                text.text = "This is poisonous. Bad news...";
             }
 
-            yield return new WaitForSeconds(time);
+            if (curiosity.slider.value >= 1 && bravery.slider.value >= 1 && happiness.slider.value < 1)
+            {
+                text.fontSize = 20;
+                text.text = "Could the Pig be poisoned?";
+            }
+
+            if (curiosity.slider.value >= 1 && bravery.slider.value >= 1 && happiness.slider.value >= 1 ||
+                curiosity.slider.value >= 1 && bravery.slider.value < 1 && happiness.slider.value >= 1)
+            {
+                text.fontSize = 14;
+                text.text = "If I feed the plant to the Pig, the venom will be gone!";
+            }
+
+
+            //yield return new WaitForSeconds(time);
+
+
+        }
+        else if (transform.name == "Plant")
+        {
+
+            happiness.SetBar(1);
+
+            if (happiness.slider.value >= 1 && curiosity.slider.value < 1 && bravery.slider.value < 1)
+            {
+                text.fontSize = 20;
+                text.text = "That's weird, a medicinal plant";
+            }
+
+            if (happiness.slider.value >= 1 && curiosity.slider.value >= 1 && bravery.slider.value < 1)
+            {
+                text.fontSize = 14;
+                text.text = "This could counter the effects of that mushroom!";
+            }
+
+            if (happiness.slider.value >= 1 && curiosity.slider.value >= 1 && bravery.slider.value >= 1 ||
+                happiness.slider.value >= 1 && curiosity.slider.value < 1 && bravery.slider.value >= 1)
+            {
+                text.fontSize = 20;
+                text.text = "It could help the hurt Pig!";
+                //StartCoroutine(SelfDestruct());
+            }
+
+            //yield return new WaitForSeconds(time);
 
 
         }
 
-
+        yield return new WaitForSeconds(time);
         this.text.enabled = false;
         this.image.enabled = false;
-        //yield return new WaitForSeconds(3);
-        //text.enabled = false;
+
 
     }
 }
