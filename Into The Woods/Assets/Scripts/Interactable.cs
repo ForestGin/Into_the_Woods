@@ -175,7 +175,7 @@ public class Interactable : MonoBehaviour
             if (curiosity.slider.value >= 1 && bravery.slider.value >= 1 && happiness.slider.value < 1)
             {
                 text.fontSize = 20;
-                text.text = "Could the Pig be poisoned?";
+                text.text = "The pig has eaten this mushroom";
             }
 
             if (curiosity.slider.value >= 1 && bravery.slider.value >= 1 && happiness.slider.value >= 1 ||
