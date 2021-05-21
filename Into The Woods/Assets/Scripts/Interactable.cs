@@ -220,6 +220,48 @@ public class Interactable : MonoBehaviour
 
         }
 
+        else if (transform.name == "Yeti")
+        {
+
+
+            if (bravery.slider.value > curiosity.slider.value && bravery.slider.value > happiness.slider.value)
+            {
+                text.fontSize = 20;
+                text.text = "Mathias makes the Yeti run away";
+            }
+
+            if (bravery.slider.value == curiosity.slider.value && bravery.slider.value > happiness.slider.value)
+            {
+                text.fontSize = 14;
+                text.text = "Mathias is captured but faces the Yeti and makes him run away";
+            }
+
+            if (bravery.slider.value == happiness.slider.value && bravery.slider.value > curiosity.slider.value)
+            {
+                text.fontSize = 14;
+                text.text = "Mathias faces the Yeti but in the end they become friend";
+            }
+
+            if (curiosity.slider.value > bravery.slider.value && curiosity.slider.value > happiness.slider.value)
+            {
+                text.fontSize = 20;
+                text.text = "Mathias finds the Yeti and it's captured";
+            }
+
+            if (curiosity.slider.value == happiness.slider.value && curiosity.slider.value > bravery.slider.value)
+            {
+                text.fontSize = 14;
+                text.text = "Mathias is captured but makes the Yeti his friend while its captive";
+            }
+
+            if (happiness.slider.value > bravery.slider.value && happiness.slider.value > curiosity.slider.value)
+            {
+                text.fontSize = 20;
+                text.text = "Mathias and the Yeti are friends";
+            }
+
+        }
+
         yield return new WaitForSeconds(time);
         this.text.enabled = false;
         this.image.enabled = false;
