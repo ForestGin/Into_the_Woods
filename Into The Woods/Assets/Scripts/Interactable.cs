@@ -30,7 +30,7 @@ public class Interactable : MonoBehaviour
     Image[] imageshappiness;
 
 
-
+    static bool crow = false;
 
     void Start()
     {
@@ -85,7 +85,7 @@ public class Interactable : MonoBehaviour
 
         }
 
-       
+        //Debug.Log("Bravery" +  bravery.slider.value);
     }
     public void OnFocused (Transform playerTransform)
     {
@@ -218,6 +218,29 @@ public class Interactable : MonoBehaviour
             //yield return new WaitForSeconds(time);
 
 
+        }
+
+        else if (transform.name == "Feather1" || transform.name == "Feather2")
+        {
+            text.fontSize = 18;
+            text.text = "These feathers must guide somewhere...";
+
+
+        }
+
+        else if (transform.name == "Crow")
+        {
+            //do just once, then make crow dissapear
+            if (!crow)
+            {
+                crow = true;
+                bravery.slider.value += 1;
+            }
+
+            text.fontSize = 20;
+            text.text = "What an scary big Crow!";
+
+            StartCoroutine(SelfDestruct());
         }
 
         else if (transform.name == "Yeti")
