@@ -31,7 +31,8 @@ public class Interactable : MonoBehaviour
 
 
     static bool crow = false;
-
+    static bool meal = false;
+    static bool bear = false;
     void Start()
     {
         canvas = GameObject.Find("Canvas");
@@ -86,6 +87,7 @@ public class Interactable : MonoBehaviour
         }
 
         //Debug.Log("Bravery" +  bravery.slider.value);
+        Debug.Log("Happiness" +  happiness.slider.value);
     }
     public void OnFocused (Transform playerTransform)
     {
@@ -241,6 +243,36 @@ public class Interactable : MonoBehaviour
             text.text = "What an scary big Crow!";
 
             StartCoroutine(SelfDestruct());
+        }
+
+        else if (transform.name == "BearHead")
+        {
+            //do just once
+            if (!bear)
+            {
+                bear = true;
+                bravery.slider.value += 1;
+            }
+
+            text.fontSize = 18;
+            text.text = "This bear must have been enormous!";
+
+            
+        }
+
+        else if (transform.name == "MealPot")
+        {
+            //do just once
+            if (!meal)
+            {
+                meal = true;
+                happiness.slider.value += 1;
+            }
+
+            text.fontSize = 18;
+            text.text = "This reminds me of my family";
+
+            
         }
 
         else if (transform.name == "Yeti")
