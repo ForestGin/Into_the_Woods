@@ -22139,7 +22139,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Particle
       value: 
-      objectReference: {fileID: 1172338553574498939, guid: 92c68f635fc1cca4fbc99f57744a6bf6,
+      objectReference: {fileID: 1172338553574498939, guid: 2e39501a22432fb409d90ecc9a631920,
         type: 3}
     - target: {fileID: 1516689387572085360, guid: acd05783ac7968d4cb7553289d36bc43,
         type: 3}
@@ -38236,6 +38236,17 @@ PrefabInstance:
       propertyPath: radius
       value: 1.6
       objectReference: {fileID: 0}
+    - target: {fileID: 3119587310651929766, guid: 768a0991214116945ade83d3f44d836c,
+        type: 3}
+      propertyPath: spawnPos
+      value: 
+      objectReference: {fileID: 1726244172}
+    - target: {fileID: 3119587310651929766, guid: 768a0991214116945ade83d3f44d836c,
+        type: 3}
+      propertyPath: Particle
+      value: 
+      objectReference: {fileID: 1172338553574498939, guid: 92c68f635fc1cca4fbc99f57744a6bf6,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 768a0991214116945ade83d3f44d836c, type: 3}
 --- !u!4 &659010393
@@ -60116,8 +60127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3.6
-  spawnPos: {fileID: 0}
-  Particle: {fileID: 0}
+  spawnPos: {fileID: 1726244172}
+  Particle: {fileID: 1172338553574498939, guid: 2e39501a22432fb409d90ecc9a631920,
+    type: 3}
 --- !u!136 &1140161551
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -65879,8 +65891,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2.71
-  spawnPos: {fileID: 0}
-  Particle: {fileID: 0}
+  spawnPos: {fileID: 1726244172}
+  Particle: {fileID: 1172338553574498939, guid: fa69611620b47eb4ea5d707ca518834d,
+    type: 3}
 --- !u!1 &1259098491
 GameObject:
   m_ObjectHideFlags: 0
@@ -89896,7 +89909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 1.39
   spawnPos: {fileID: 1726244172}
-  Particle: {fileID: 1172338553574498939, guid: 92c68f635fc1cca4fbc99f57744a6bf6,
+  Particle: {fileID: 1172338553574498939, guid: fa69611620b47eb4ea5d707ca518834d,
     type: 3}
 --- !u!135 &1797042908
 SphereCollider:
@@ -93305,8 +93318,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3.04
-  spawnPos: {fileID: 0}
-  Particle: {fileID: 0}
+  spawnPos: {fileID: 1726244172}
+  Particle: {fileID: 1172338553574498939, guid: 2e39501a22432fb409d90ecc9a631920,
+    type: 3}
 --- !u!136 &1864217958
 CapsuleCollider:
   m_ObjectHideFlags: 0

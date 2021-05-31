@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5033973740630534344}
   - component: {fileID: 6175698173305475633}
   m_Layer: 0
-  m_Name: ParticleBravery
+  m_Name: 'ParticleBravery '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

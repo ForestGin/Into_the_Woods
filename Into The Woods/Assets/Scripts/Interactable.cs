@@ -38,6 +38,7 @@ public class Interactable : MonoBehaviour
     public GameObject Particle;
     static bool pigparticle = false;
     static bool plantparticle = false;
+    static bool mushroomparticle = false;
 
     void Start()
     {
@@ -178,7 +179,11 @@ public class Interactable : MonoBehaviour
         else if (transform.name == "Mushroom")
         {
             curiosity.SetBar(1);
-
+            if(!mushroomparticle)
+            {
+                mushroomparticle = true;
+                Instantiate(Particle, spawnPos.transform);
+            }
 
             if (curiosity.slider.value >= 1 && bravery.slider.value < 1 && happiness.slider.value < 1)
             {
@@ -253,6 +258,7 @@ public class Interactable : MonoBehaviour
             if (!crow)
             {
                 crow = true;
+                Instantiate(Particle, spawnPos.transform);
                 bravery.slider.value += 1;
             }
 
@@ -268,6 +274,7 @@ public class Interactable : MonoBehaviour
             if (!bear)
             {
                 bear = true;
+                Instantiate(Particle, spawnPos.transform);
                 bravery.slider.value += 1;
             }
 
@@ -283,6 +290,7 @@ public class Interactable : MonoBehaviour
             if (!meal)
             {
                 meal = true;
+                Instantiate(Particle, spawnPos.transform);
                 happiness.slider.value += 1;
             }
 
