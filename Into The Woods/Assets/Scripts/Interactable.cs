@@ -33,6 +33,12 @@ public class Interactable : MonoBehaviour
     static bool crow = false;
     static bool meal = false;
     static bool bear = false;
+
+    public GameObject spawnPos;
+    public GameObject Particle;
+    static bool pigparticle = false;
+    static bool plantparticle = false;
+
     void Start()
     {
         canvas = GameObject.Find("Canvas");
@@ -87,7 +93,7 @@ public class Interactable : MonoBehaviour
         }
 
         //Debug.Log("Bravery" +  bravery.slider.value);
-        Debug.Log("Happiness" +  happiness.slider.value);
+        //Debug.Log("Happiness" +  happiness.slider.value);
     }
     public void OnFocused (Transform playerTransform)
     {
@@ -136,9 +142,15 @@ public class Interactable : MonoBehaviour
         {
             
             bravery.SetBar(1);
+            if (!pigparticle)
+            {
+                pigparticle = true;
+                Instantiate(Particle, spawnPos.transform);
+            }
 
             if (bravery.slider.value >= 1 && curiosity.slider.value < 1 && happiness.slider.value < 1)
             {
+                //Instantiate(ParticleBravery, transform);
                 text.fontSize = 18;
                 text.text = "This Pig is blocking the way. He seems hurt...";
             }
@@ -196,6 +208,11 @@ public class Interactable : MonoBehaviour
         {
 
             happiness.SetBar(1);
+            if(!plantparticle)
+            {
+                plantparticle = true;
+                Instantiate(Particle, spawnPos.transform);
+            }
 
             if (happiness.slider.value >= 1 && curiosity.slider.value < 1 && bravery.slider.value < 1)
             {

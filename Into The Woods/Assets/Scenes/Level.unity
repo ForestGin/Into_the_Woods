@@ -22129,6 +22129,23 @@ PrefabInstance:
       propertyPath: radius
       value: 2.42
       objectReference: {fileID: 0}
+    - target: {fileID: 1516689387572085360, guid: acd05783ac7968d4cb7553289d36bc43,
+        type: 3}
+      propertyPath: ParticleBravery
+      value: 
+      objectReference: {fileID: 1172338553574498939, guid: 92c68f635fc1cca4fbc99f57744a6bf6,
+        type: 3}
+    - target: {fileID: 1516689387572085360, guid: acd05783ac7968d4cb7553289d36bc43,
+        type: 3}
+      propertyPath: Particle
+      value: 
+      objectReference: {fileID: 1172338553574498939, guid: 92c68f635fc1cca4fbc99f57744a6bf6,
+        type: 3}
+    - target: {fileID: 1516689387572085360, guid: acd05783ac7968d4cb7553289d36bc43,
+        type: 3}
+      propertyPath: spawnPos
+      value: 
+      objectReference: {fileID: 1726244172}
     - target: {fileID: 1516689387572085361, guid: acd05783ac7968d4cb7553289d36bc43,
         type: 3}
       propertyPath: m_IsTrigger
@@ -41191,8 +41208,8 @@ Transform:
   - {fileID: 1765777647}
   - {fileID: 1923197973}
   - {fileID: 751004276}
-  - {fileID: 1811261846}
   - {fileID: 1885500303}
+  - {fileID: 1811261846}
   - {fileID: 333284512}
   - {fileID: 23185003}
   - {fileID: 1575248155}
@@ -60099,6 +60116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3.6
+  spawnPos: {fileID: 0}
+  Particle: {fileID: 0}
 --- !u!136 &1140161551
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -62121,6 +62140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 1.46
+  spawnPos: {fileID: 0}
+  Particle: {fileID: 0}
 --- !u!1 &1178166043
 GameObject:
   m_ObjectHideFlags: 0
@@ -64042,6 +64063,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2.7
+  spawnPos: {fileID: 0}
+  Particle: {fileID: 0}
 --- !u!1001 &1218278751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65856,6 +65879,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2.71
+  spawnPos: {fileID: 0}
+  Particle: {fileID: 0}
 --- !u!1 &1259098491
 GameObject:
   m_ObjectHideFlags: 0
@@ -85173,6 +85198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 1.43
+  spawnPos: {fileID: 0}
+  Particle: {fileID: 0}
 --- !u!1 &1681868947
 GameObject:
   m_ObjectHideFlags: 0
@@ -86673,6 +86700,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8683692249949569691, guid: 99e86460e9bfcf644956d799c342fee2,
     type: 3}
   m_PrefabInstance: {fileID: 1726054530}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1726244172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4009723848541514539, guid: af868da64cfe6424dac5accb0d8ac6d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1797470843152754985}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1727476917
 PrefabInstance:
@@ -89862,6 +89895,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 1.39
+  spawnPos: {fileID: 1726244172}
+  Particle: {fileID: 1172338553574498939, guid: 92c68f635fc1cca4fbc99f57744a6bf6,
+    type: 3}
 --- !u!135 &1797042908
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -93269,6 +93305,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3.04
+  spawnPos: {fileID: 0}
+  Particle: {fileID: 0}
 --- !u!136 &1864217958
 CapsuleCollider:
   m_ObjectHideFlags: 0
