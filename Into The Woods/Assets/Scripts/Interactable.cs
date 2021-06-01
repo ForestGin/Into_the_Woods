@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Interactable : MonoBehaviour
 {
@@ -39,6 +40,8 @@ public class Interactable : MonoBehaviour
     static bool pigparticle = false;
     static bool plantparticle = false;
     static bool mushroomparticle = false;
+
+    public static int ending = 0;
 
     void Start()
     {
@@ -91,6 +94,12 @@ public class Interactable : MonoBehaviour
                 hasInteracted = true;
             }
 
+        }
+
+        //if we interact with the yeti load end menu to show text and stats
+        if(ending != 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         //Debug.Log("Bravery" +  bravery.slider.value);
@@ -306,6 +315,7 @@ public class Interactable : MonoBehaviour
 
             if (bravery.slider.value > curiosity.slider.value && bravery.slider.value > happiness.slider.value)
             {
+                ending = 1;
                 text.fontSize = 20;
                 text.text = "Mathias makes the Yeti run away";
             }
@@ -341,11 +351,11 @@ public class Interactable : MonoBehaviour
             }
 
         }
-
+       
         yield return new WaitForSeconds(time);
         this.text.enabled = false;
         this.image.enabled = false;
 
-
+        
     }
 }
