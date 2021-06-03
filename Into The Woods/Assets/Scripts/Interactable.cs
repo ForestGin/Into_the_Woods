@@ -42,6 +42,9 @@ public class Interactable : MonoBehaviour
     static bool mushroomparticle = false;
 
     public static int ending = 0;
+    public static float curioValue = 0;
+    public static float braveValue = 0;
+    public static float happyValue = 0;
 
     void Start()
     {
@@ -81,7 +84,9 @@ public class Interactable : MonoBehaviour
 
     void Update()
     {
-        
+        braveValue = bravery.slider.value;
+        curioValue = curiosity.slider.value;
+        happyValue = happiness.slider.value;
         
 
         if (isFocus && !hasInteracted)
@@ -95,6 +100,8 @@ public class Interactable : MonoBehaviour
             }
 
         }
+
+        
 
         //if we interact with the yeti load end menu to show text and stats
         if(ending != 0)
@@ -135,6 +142,7 @@ public class Interactable : MonoBehaviour
 
        
     }
+   
     IEnumerator SelfDestruct()
     {
         yield return new WaitForSeconds(3f);
@@ -316,38 +324,37 @@ public class Interactable : MonoBehaviour
             if (bravery.slider.value > curiosity.slider.value && bravery.slider.value > happiness.slider.value)
             {
                 ending = 1;
-                text.fontSize = 20;
-                text.text = "Mathias makes the Yeti run away";
+               
             }
 
             if (bravery.slider.value == curiosity.slider.value && bravery.slider.value > happiness.slider.value)
             {
-                text.fontSize = 14;
-                text.text = "Mathias is captured but faces the Yeti and makes him run away";
+                ending = 2;
+                
             }
 
             if (bravery.slider.value == happiness.slider.value && bravery.slider.value > curiosity.slider.value)
             {
-                text.fontSize = 14;
-                text.text = "Mathias faces the Yeti but in the end they become friend";
+                ending = 3;
+                
             }
 
             if (curiosity.slider.value > bravery.slider.value && curiosity.slider.value > happiness.slider.value)
             {
-                text.fontSize = 20;
-                text.text = "Mathias finds the Yeti and it's captured";
+                ending = 4;
+               
             }
 
             if (curiosity.slider.value == happiness.slider.value && curiosity.slider.value > bravery.slider.value)
             {
-                text.fontSize = 14;
-                text.text = "Mathias is captured but makes the Yeti his friend while its captive";
+                ending = 5;
+               
             }
 
             if (happiness.slider.value > bravery.slider.value && happiness.slider.value > curiosity.slider.value)
             {
-                text.fontSize = 20;
-                text.text = "Mathias and the Yeti are friends";
+                ending = 6;
+               
             }
 
         }
