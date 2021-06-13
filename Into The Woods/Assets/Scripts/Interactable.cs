@@ -34,6 +34,9 @@ public class Interactable : MonoBehaviour
     static bool crow = false;
     static bool meal = false;
     static bool bear = false;
+    static bool turtle = false;
+    static bool axe = false;
+    static bool ducks = false;
 
     public GameObject spawnPos;
     public GameObject Particle;
@@ -304,7 +307,7 @@ public class Interactable : MonoBehaviour
             text.fontSize = 18;
             text.text = "This bear must have been enormous!";
 
-            
+            StartCoroutine(SelfDestruct());
         }
 
         else if (transform.name == "MealPot")
@@ -321,7 +324,59 @@ public class Interactable : MonoBehaviour
             text.fontSize = 18;
             text.text = "This reminds me of my family";
 
-            
+            StartCoroutine(SelfDestruct());
+
+        }
+
+        else if (transform.name == "Turtle")
+        {
+            FindObjectOfType<AudioManager>().Play("Turtle");
+            //do just once
+            if (!turtle)
+            {
+                turtle = true;
+                Instantiate(Particle, spawnPos.transform);
+                curiosity.slider.value += 1;
+            }
+
+            text.fontSize = 18;
+            text.text = "What an strange creature";
+
+            StartCoroutine(SelfDestruct());
+        }
+
+        else if (transform.name == "Axe")
+        {
+            FindObjectOfType<AudioManager>().Play("Axe");
+            //do just once
+            if (!axe)
+            {
+                axe = true;
+                Instantiate(Particle, spawnPos.transform);
+                bravery.slider.value += 1;
+            }
+
+            text.fontSize = 18;
+            text.text = "This must belong to a hunter!";
+
+            StartCoroutine(SelfDestruct());
+        }
+
+        else if (transform.name == "Ducks")
+        {
+            FindObjectOfType<AudioManager>().Play("Ducks");
+            //do just once
+            if (!ducks)
+            {
+                ducks = true;
+                Instantiate(Particle, spawnPos.transform);
+                happiness.slider.value += 1;
+            }
+
+            text.fontSize = 18;
+            text.text = "What a wholesome scene...";
+
+            StartCoroutine(SelfDestruct());
         }
 
         else if (transform.name == "Yeti")
@@ -363,6 +418,12 @@ public class Interactable : MonoBehaviour
             {
                 ending = 6;
                
+            }
+
+            if (happiness.slider.value == bravery.slider.value && happiness.slider.value == curiosity.slider.value)
+            {
+                ending = 7;
+
             }
 
         }
