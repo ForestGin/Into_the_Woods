@@ -158,7 +158,7 @@ public class Interactable : MonoBehaviour
 
         if (transform.name == "Pig")
         {
-            
+            FindObjectOfType<AudioManager>().Play("Pig");
             bravery.SetBar(1);
             if (!pigparticle)
             {
@@ -195,11 +195,13 @@ public class Interactable : MonoBehaviour
         }
         else if (transform.name == "Mushroom")
         {
+            FindObjectOfType<AudioManager>().Play("Mushroom");
             curiosity.SetBar(1);
             if(!mushroomparticle)
             {
                 mushroomparticle = true;
                 Instantiate(Particle, spawnPos.transform);
+                StartCoroutine(SelfDestruct());
             }
 
             if (curiosity.slider.value >= 1 && bravery.slider.value < 1 && happiness.slider.value < 1)
@@ -228,12 +230,13 @@ public class Interactable : MonoBehaviour
         }
         else if (transform.name == "Plant")
         {
-
+            FindObjectOfType<AudioManager>().Play("Plant");
             happiness.SetBar(1);
             if(!plantparticle)
             {
                 plantparticle = true;
                 Instantiate(Particle, spawnPos.transform);
+                StartCoroutine(SelfDestruct());
             }
 
             if (happiness.slider.value >= 1 && curiosity.slider.value < 1 && bravery.slider.value < 1)
@@ -263,6 +266,7 @@ public class Interactable : MonoBehaviour
 
         else if (transform.name == "Feather1" || transform.name == "Feather2")
         {
+            FindObjectOfType<AudioManager>().Play("Crow");
             text.fontSize = 18;
             text.text = "These feathers must guide somewhere...";
 
@@ -277,6 +281,7 @@ public class Interactable : MonoBehaviour
                 crow = true;
                 Instantiate(Particle, spawnPos.transform);
                 bravery.slider.value += 1;
+                FindObjectOfType<AudioManager>().Play("Crow");
             }
 
             text.fontSize = 20;
@@ -287,6 +292,7 @@ public class Interactable : MonoBehaviour
 
         else if (transform.name == "BearHead")
         {
+            FindObjectOfType<AudioManager>().Play("Bear");
             //do just once
             if (!bear)
             {
@@ -303,6 +309,7 @@ public class Interactable : MonoBehaviour
 
         else if (transform.name == "MealPot")
         {
+            FindObjectOfType<AudioManager>().Play("Dinner");
             //do just once
             if (!meal)
             {
@@ -320,6 +327,7 @@ public class Interactable : MonoBehaviour
         else if (transform.name == "Yeti")
         {
 
+            FindObjectOfType<AudioManager>().Play("Yeti");
 
             if (bravery.slider.value > curiosity.slider.value && bravery.slider.value > happiness.slider.value)
             {
