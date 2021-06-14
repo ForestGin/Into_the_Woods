@@ -412,8 +412,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.9811321, g: 0.95281404, b: 0.8191527, a: 1}
-  m_Intensity: 1
-  m_Range: 5
+  m_Intensity: 2.02
+  m_Range: 8.06
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -774,12 +774,12 @@ MonoBehaviour:
   speed: 6
   turnSmoothTime: 0.1
   gravity: -9.81
-  jumpHeight: 1.5
   groundCheck: {fileID: 4009723850469501887}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 256
+  jumpHeight: 1.5
 --- !u!114 &4009723848541514519
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -72,14 +72,14 @@ public class EndMenu : MonoBehaviour
 
         if (Interactable.ending == 6)
         {
-            text.fontSize = 50;
+            text.fontSize = 48;
             text.text = "Mathias finds the Yeti and makes him laught, so the Yeti leaves Mathias alone!";
 
         }
 
         if (Interactable.ending == 7)
         {
-            text.fontSize = 45;
+            text.fontSize = 40;
             text.text = "Mathias fights the Yeti but gets captured. After some time they become friends and live together in the woods";
         }
     }
