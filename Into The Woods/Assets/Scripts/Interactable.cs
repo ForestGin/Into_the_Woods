@@ -49,6 +49,9 @@ public class Interactable : MonoBehaviour
     public static float braveValue = 0;
     public static float happyValue = 0;
 
+    public Light dirlight;
+    public GameObject dirlightgo;
+
     void Start()
     {
         canvas = GameObject.Find("Canvas");
@@ -83,6 +86,9 @@ public class Interactable : MonoBehaviour
         imageshappiness[0].enabled = false;
         imageshappiness[1].enabled = false;
 
+        dirlight = GameObject.Find("Directional Light").GetComponent<Light>();
+        dirlightgo = GameObject.Find("Directional Light");
+
     }
 
     void Update()
@@ -104,7 +110,24 @@ public class Interactable : MonoBehaviour
 
         }
 
-        
+        if (braveValue > curioValue && braveValue > happyValue)
+        {
+            dirlight.color = Color.blue;
+            
+            dirlightgo.transform.eulerAngles = new Vector3(-90, 0, 0);
+        }
+        if (curioValue > braveValue && curioValue > happyValue)
+        {
+            dirlight.color = Color.yellow;
+            dirlightgo.transform.eulerAngles = new Vector3(-15, 0, 0);
+        }
+
+        if (happyValue > braveValue && happyValue > curioValue)
+        {
+            dirlight.color = Color.white;
+            dirlightgo.transform.eulerAngles = new Vector3(-1, 0, 0);
+        }
+
 
         //if we interact with the yeti load end menu to show text and stats
         if(ending != 0)
